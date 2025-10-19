@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 class ProductoController extends Controller
 {
     // Mostrar todos los productos
-    public function index()
-    {
-        $productos = Producto::all();
-        return view('productos.index', compact('productos'));
+ public function index()
+{
+    if (!session('usuario')) {
+        return redirect()->route('login');
     }
+
+    $productos = Producto::all();
+    return view('productos.index', compact('productos'));
+}
+
 
     // Mostrar formulario para crear
     public function create()

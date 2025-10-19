@@ -11,6 +11,13 @@
       <h1 class="font-bold text-lg">🐟 Ocean's Catch</h1>
       <a href="{{ route('productos.index') }}" class="hover:text-yellow-300">Productos</a>
     </div>
+    @if(session('usuario'))
+  <div class="text-right p-2">
+    <span class="text-gray-600 mr-2">Hola, {{ session('usuario') }}</span>
+    <a href="{{ route('logout') }}" class="text-red-500 hover:underline">Cerrar sesión</a>
+  </div>
+@endif
+
   </nav>
 
   <main class="py-8">
