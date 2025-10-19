@@ -1,18 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-md mx-auto p-6">
-  <h1 class="text-2xl font-bold mb-4">Agregar Producto</h1>
+<div class="min-h-screen flex flex-col justify-between bg-gradient-to-br from-sky-50 to-sky-100">
 
-  <form action="{{ route('productos.store') }}" method="POST" class="grid gap-4">
-    @csrf
-    <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded-md" required>
-    <textarea name="descripcion" placeholder="Descripción" class="border p-2 rounded-md"></textarea>
-    <input type="number" step="0.01" name="precio" placeholder="Precio" class="border p-2 rounded-md" required>
-    <input type="number" name="cantidad" placeholder="Cantidad" class="border p-2 rounded-md" required>
-    <input type="text" name="imagen" placeholder="URL de imagen (opcional)" class="border p-2 rounded-md">
-    <button class="bg-sky-700 text-white px-4 py-2 rounded-md hover:bg-sky-800">Guardar</button>
-    <a href="{{ route('productos.index') }}" class="text-gray-600 hover:underline text-sm">← Volver</a>
-  </form>
+  <!-- Contenedor principal -->
+  <div class="flex-grow flex items-center justify-center py-10 px-4">
+    <div class="bg-white shadow-xl rounded-2xl w-full max-w-md p-8 transition transform hover:shadow-2xl duration-300">
+
+      <h1 class="text-3xl font-bold text-center text-sky-800 mb-6">
+        🐟 Agregar Producto
+      </h1>
+
+      <form action="{{ route('productos.store') }}" method="POST" class="space-y-5">
+        @csrf
+
+        <!-- Nombre -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Nombre</label>
+          <input type="text" name="nombre" placeholder="Ej: Mojarra Roja"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Descripción</label>
+          <textarea name="descripcion" rows="3" placeholder="Describe el producto..."
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+        </div>
+
+        <!-- Precio -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Precio</label>
+          <input type="number" step="0.01" name="precio" placeholder="Ej: 15000"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+        </div>
+
+        <!-- Cantidad -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Cantidad</label>
+          <input type="number" name="cantidad" placeholder="Ej: 20"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+        </div>
+
+        <!-- Imagen -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Imagen (URL opcional)</label>
+          <input type="text" name="imagen" placeholder="https://..."
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+        </div>
+
+        <!-- Botones -->
+        <div class="flex flex-col gap-3 mt-6">
+          <button type="submit"
+            class="bg-sky-700 text-white font-semibold py-2 rounded-lg hover:bg-sky-800 transition">
+            💾 Guardar Producto
+          </button>
+
+          <a href="{{ route('productos.index') }}"
+            class="text-center text-sky-700 font-medium hover:underline">
+            ← Volver al listado
+          </a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  
+
 </div>
 @endsection
