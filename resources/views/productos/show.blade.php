@@ -13,6 +13,7 @@
 
       <!-- Detalles del producto -->
       <div class="space-y-4 text-gray-700">
+        
         <div>
           <p class="text-sm font-semibold text-gray-500 uppercase">Nombre</p>
           <p class="text-lg font-medium">{{ $producto->nombre }}</p>
@@ -33,10 +34,23 @@
           <p class="text-lg font-medium">{{ $producto->cantidad }}</p>
         </div>
 
+        <!-- 🟦 Categoría -->
+        <div>
+          <p class="text-sm font-semibold text-gray-500 uppercase">Categoría</p>
+          <p class="text-lg font-medium">
+            {{ $producto->categoria ? $producto->categoria->nombre : 'Sin categoría asignada' }}
+          </p>
+        </div>
+
+        <!-- 🖼 Imagen -->
         @if($producto->imagen)
         <div class="flex justify-center mt-6">
-          <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}" 
-               class="w-48 h-48 object-cover rounded-xl shadow-md">
+          <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->nombre }}" 
+               class="w-48 h-48 object-cover rounded-xl shadow-md border">
+        </div>
+        @else
+        <div class="flex justify-center mt-6 text-gray-400 italic">
+          <p>Sin imagen disponible</p>
         </div>
         @endif
       </div>
@@ -56,6 +70,5 @@
     </div>
   </div>
 
-  
 </div>
 @endsection

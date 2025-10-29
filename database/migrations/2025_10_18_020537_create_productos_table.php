@@ -18,6 +18,13 @@ return new class extends Migration
             $table->decimal('precio', 10, 2);
             $table->integer('cantidad');
             $table->string('imagen')->nullable();
+
+            // 🔹 Nueva columna de relación con categorias
+            $table->foreignId('categoria_id')
+                  ->nullable() // permite valores nulos si el producto no tiene categoría aún
+                  ->constrained('categorias') // referencia a la tabla categorias
+                  ->nullOnDelete(); // si se borra la categoría, deja el campo en null
+
             $table->timestamps();
         });
     }

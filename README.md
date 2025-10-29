@@ -1,28 +1,28 @@
-# ⚓ Pescadería Ocean’s Catch
+#  Pescadería Ocean’s Catch
 
 **Pescadería Ocean’s Catch** es una aplicación web desarrollada en **Laravel** para la gestión de productos de una pescadería.  
 Permite **iniciar sesión**, **agregar, editar, ver y eliminar productos**, y cuenta con una interfaz **moderna, clara y responsiva** usando **TailwindCSS**.
 
 ---
 
-## 🐟 Descripción general
+##  Descripción general
 
 El sistema fue diseñado para facilitar el control de los productos disponibles en una pescadería.  
 Incluye un login simulado y un CRUD completo de productos, con una experiencia visual atractiva y adaptada a dispositivos móviles.
 
 ---
 
-## ✨ Características principales
+##  Características principales
 
-- 🔐 **Login simulado** con validación de usuario y cierre de sesión.
-- 📦 **Gestión de productos** (crear, editar, eliminar, listar).
-- 🖼️ **Visualización clara** con tabla moderna y formularios minimalistas.
-- 📱 **Diseño responsivo**, adaptado para pantallas pequeñas y grandes.
-- 🎨 **Interfaz moderna** con TailwindCSS y colores marinos.
+-  **Login simulado** con validación de usuario y cierre de sesión.
+-  **Gestión de productos** (crear, editar, eliminar, listar).
+-  **Visualización clara** con tabla moderna y formularios minimalistas.
+- **Diseño responsivo**, adaptado para pantallas pequeñas y grandes.
+-  **Interfaz moderna** con TailwindCSS y colores marinos.
 
 ---
 
-## 🖼️ Vistas principales
+##  Vistas principales
 
 | Vista | Descripción |
 |-------|--------------|
@@ -34,7 +34,7 @@ Incluye un login simulado y un CRUD completo de productos, con una experiencia v
 
 ---
 
-## 🧰 Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 | Tecnología | Uso |
 |-------------|-----|
@@ -45,7 +45,7 @@ Incluye un login simulado y un CRUD completo de productos, con una experiencia v
 
 ---
 
-## 🚀 Ejecución local
+##  Ejecución local
 
 Para abrir el proyecto localmente:
 

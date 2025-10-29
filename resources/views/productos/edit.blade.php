@@ -27,7 +27,7 @@
           <label class="block text-gray-700 font-semibold mb-1">Descripción</label>
           <textarea name="descripcion" rows="3"
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none"
-            required>{{ $producto->descripcion }}</textarea>
+            placeholder="Describe el producto...">{{ $producto->descripcion }}</textarea>
         </div>
 
         <!-- Precio -->
@@ -42,6 +42,21 @@
           <label class="block text-gray-700 font-semibold mb-1">Cantidad</label>
           <input type="number" name="cantidad" value="{{ $producto->cantidad }}"
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+        </div>
+
+        <!-- Categoría -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Categoría</label>
+          <select name="categoria_id"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+            <option value="">-- Selecciona una categoría --</option>
+            @foreach($categorias as $categoria)
+              <option value="{{ $categoria->id }}" 
+                {{ $producto->categoria_id == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nombre }}
+              </option>
+            @endforeach
+          </select>
         </div>
 
         <!-- Imagen -->
@@ -69,6 +84,5 @@
     </div>
   </div>
 
-  
 </div>
 @endsection

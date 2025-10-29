@@ -17,7 +17,7 @@
         <!-- Nombre -->
         <div>
           <label class="block text-gray-700 font-semibold mb-1">Nombre</label>
-          <input type="text" name="nombre" placeholder="Ej: Mojarra Roja"
+          <input type="text" name="nombre" value="{{ old('nombre') }}" placeholder="Ej: Mojarra Roja"
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
         </div>
 
@@ -25,27 +25,41 @@
         <div>
           <label class="block text-gray-700 font-semibold mb-1">Descripción</label>
           <textarea name="descripcion" rows="3" placeholder="Describe el producto..."
-            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none">{{ old('descripcion') }}</textarea>
         </div>
 
         <!-- Precio -->
         <div>
           <label class="block text-gray-700 font-semibold mb-1">Precio</label>
-          <input type="number" step="0.01" name="precio" placeholder="Ej: 15000"
+          <input type="number" step="0.01" name="precio" value="{{ old('precio') }}" placeholder="Ej: 15000"
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
         </div>
 
         <!-- Cantidad -->
         <div>
           <label class="block text-gray-700 font-semibold mb-1">Cantidad</label>
-          <input type="number" name="cantidad" placeholder="Ej: 20"
+          <input type="number" name="cantidad" value="{{ old('cantidad') }}" placeholder="Ej: 20"
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+        </div>
+
+        <!-- Categoría -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">Categoría</label>
+          <select name="categoria_id"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+            <option value="">-- Selecciona una categoría --</option>
+            @foreach($categorias as $categoria)
+              <option value="{{ $categoria->id }}" {{ old('categoria_id') == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nombre }}
+              </option>
+            @endforeach
+          </select>
         </div>
 
         <!-- Imagen -->
         <div>
           <label class="block text-gray-700 font-semibold mb-1">Imagen (URL opcional)</label>
-          <input type="text" name="imagen" placeholder="https://..."
+          <input type="text" name="imagen" value="{{ old('imagen') }}" placeholder="https://..."
             class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-sky-500 focus:outline-none">
         </div>
 
@@ -65,8 +79,6 @@
 
     </div>
   </div>
-
-  
 
 </div>
 @endsection

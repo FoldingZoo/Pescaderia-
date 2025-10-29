@@ -45,6 +45,7 @@
           <th class="py-3 px-4 text-left">Descripción</th>
           <th class="py-3 px-4 text-left">Precio</th>
           <th class="py-3 px-4 text-left">Cantidad</th>
+          <th class="py-3 px-4 text-left">Categoría</th> <!-- 🟦 Nueva columna -->
           <th class="py-3 px-4 text-left">Imagen</th>
           <th class="py-3 px-4 text-center">Acciones</th>
         </tr>
@@ -56,6 +57,12 @@
           <td class="py-3 px-4 text-gray-600">{{ $producto->descripcion }}</td>
           <td class="py-3 px-4 text-gray-700">${{ number_format($producto->precio, 2) }}</td>
           <td class="py-3 px-4 text-gray-700">{{ $producto->cantidad }}</td>
+          
+          <!-- 🟢 Mostrar nombre de la categoría -->
+          <td class="py-3 px-4 text-gray-700">
+            {{ $producto->categoria ? $producto->categoria->nombre : 'Sin categoría' }}
+          </td>
+
           <td class="py-3 px-4">
             @if($producto->imagen)
               <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen de {{ $producto->nombre }}" class="w-20 h-20 object-cover rounded-md border">
@@ -63,6 +70,7 @@
               <span class="text-gray-400 italic">Sin imagen</span>
             @endif
           </td>
+
           <td class="py-3 px-4 text-center">
             <a href="{{ route('productos.edit', $producto) }}" class="text-blue-600 hover:text-blue-800 font-semibold mr-3">Editar</a>
             <form action="{{ route('productos.destroy', $producto) }}" method="POST" class="inline">
@@ -79,6 +87,4 @@
     </table>
   </div>
 </section>
-
-
 @endsection
