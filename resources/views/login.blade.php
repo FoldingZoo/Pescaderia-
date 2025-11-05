@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login | Pescadería Fishery</title>
+    <title>Login | Pescadería Ocean's Catch</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-sky-100 via-white to-sky-200 min-h-screen flex items-center justify-center">
@@ -18,7 +18,7 @@
 
         <!-- Formulario -->
         <div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
-            <h2 class="text-3xl font-bold text-sky-800 mb-6 text-center">Bienvenido a Fishery</h2>
+            <h2 class="text-3xl font-bold text-sky-800 mb-6 text-center">Bienvenido a Ocean's Catch</h2>
 
             @if(session('error'))
                 <div class="bg-red-100 text-red-600 px-4 py-2 rounded-md mb-4 text-center">
@@ -47,7 +47,7 @@
             </form>
 
             <p class="text-center text-gray-500 text-sm mt-6">
-                © {{ date('Y') }} Pescadería Fishery — Todos los derechos reservados
+                © {{ date('Y') }} Pescadería Ocean's Catch — Todos los derechos reservados
             </p>
         </div>
     </div>
